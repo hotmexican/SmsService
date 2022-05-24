@@ -21,7 +21,7 @@ public class Message {
     @Column(name = "number")
     private String number;
     @Column(name = "sendTime")
-    private LocalDateTime sendTime;
+    private String sendTime;
 
     @Column(name = "status")
     private Boolean status;
@@ -29,7 +29,7 @@ public class Message {
     public Message(String text, String number) {
         this.text = text;
         this.number = number;
-        this.sendTime = LocalDateTime.now();
+        this.sendTime = LocalDateTime.now().toString();
     }
 
     public Message() {
@@ -59,11 +59,11 @@ public class Message {
         this.number = number;
     }
 
-    public LocalDateTime getSendTime() {
+    public String getSendTime() {
         return sendTime;
     }
 
-    public void setSendTime(LocalDateTime expireTime) {
+    public void setSendTime(String expireTime) {
         this.sendTime = expireTime;
     }
 

@@ -23,10 +23,9 @@ public class SmsSendRestController {
 
     @PostMapping(value = "send", produces = {MediaType.APPLICATION_JSON_VALUE})
     public Boolean smsHandler(@RequestBody Message sms) {
-        //по идее мне в @RequestBody приходит номер и текст, я только добавляю дату и статус для своей БД
         sms.setNumber("123456789");
         sms.setText("Пробное");
-        sms.setSendTime(LocalDateTime.now());
+        sms.setSendTime(LocalDateTime.now().toString());
         sms.setStatus(true);
         service.sendSms(sms);
         return sms.getStatus();
